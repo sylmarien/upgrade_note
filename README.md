@@ -24,30 +24,22 @@ We took this upgrade as an opportunity to update some of the provided software t
 
 To check what is the name of a software after the upgrade, use the `module avail` command. As an example, to find the name of the module to load if you want to know the module name for GROMACS, procede as follows:
 
-    ```
     (node)$> module avail GROMACS
     ----------- /opt/apps/resif/devel/v0.9-20150310/core/modules/bio -----------
     bio/GROMACS/4.6.1-ictce-5.3.0-hybrid    bio/GROMACS/4.6.1-ictce-5.3.0-mt
     bio/GROMACS/4.6.5-goolf-1.4.10-hybrid    bio/GROMACS/4.6.5-goolf-1.4.10-mt (D)
-    ```
 And then simply load the module you want to use:
 
-    ```
     (node)$> module load bio/GROMACS/4.6.1-ictce-5.3.0-hybrid
-    ```
 
 Another change coming with this upgrade is the `module` tool used on the cluster: Lmod now replaces environment-modules. Lmod allows for better performance and implements more functionalities that you can discover on its [official website](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod), but your usual workflow will work the same as before. The only major difference is that the standard way to modify the modulepath environment variable is no longer to modify directly the `MODULEPATH` environment variable, but to use the `module use` and `module unuse` commands. Here is an example detailing the old and the new way of adding the `/tmp/my_modules` path to the modulepath:
 
 - Old method:
-    
-    ```
-    (node)$> export MODULEPATH=/tmp/my_modules:$MODULEPATH
-    ```
+
+        (node)$> export MODULEPATH=/tmp/my_modules:$MODULEPATH
 - New method:
 
-    ```
-    (node)$> module use /tmp/my_modules
-    ```
+        (node)$> module use /tmp/my_modules
 
 This is all you need to adapt in your workflow.
 
